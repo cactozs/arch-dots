@@ -58,6 +58,7 @@ window#waybar {
 
 #window {
     margin-left: 14px;
+    margin-right: 8px;
     color: @fg;
     opacity: 0.55;
 }
@@ -69,7 +70,7 @@ window#waybar {
 /* Center */
 
 #language,
-#custom-time {
+#clock.time {
     margin: 0;
     padding: 0 10px;
     background: transparent;
@@ -80,11 +81,16 @@ window#waybar {
     padding-right: 9px;
 }
 
-#clock {
+#clock.date {
     margin: 3px 3px;
     padding: 0 14px;
     background: @module-bg;
     font-weight: 600;
+}
+
+#clock.time {
+    margin-left: 3px;
+    font-weight: 500;
 }
 
 /* System */
@@ -109,15 +115,18 @@ window#waybar {
 /* Battery states */
 
 #battery.warning {
-    color: @yellow;
+    color: @fg;
+    font-weight: 700;
 }
 
 #battery.critical:not(.charging) {
-    color: @red;
+    background: @fg;
+    color: @bg;
+    font-weight: 700;
 }
 
 #battery.charging {
-    color: @green;
+    text-decoration: underline;
 }
 
 /* Power */

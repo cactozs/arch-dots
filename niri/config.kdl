@@ -2,7 +2,7 @@
 // "/-" comments out the following node.
 // Check the wiki for a full description of the configuration:
 // https://niri-wm.github.io/niri/Configuration:-Introduction
-// 
+//
 // Input device configuration.
 // Find the full list of options on the wiki:
 // https://niri-wm.github.io/niri/Configuration:-Input
@@ -159,13 +159,13 @@ layout {
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "#83a598"
+        active-color "#ffffff"
 
         // Color of the ring on inactive monitors.
         //
         // The focus ring only draws around the active window, so the only place
         // where you can see its inactive-color is on other monitors.
-        inactive-color "#665c54"
+        inactive-color "#59ffffff"
 
         // You can also use gradients. They take precedence over solid colors.
         // Gradients are rendered the same as CSS linear-gradient(angle, from, to).
@@ -190,11 +190,11 @@ layout {
         // off
 
         width 1
-        active-color "#83a598"
-        inactive-color "#665c54"
+        active-color "#ffffff"
+        inactive-color "#59ffffff"
 
         // Color of the border around windows that request your attention.
-        urgent-color "#fb4934"
+        urgent-color "#ffffffff"
 
         // Gradients can use a few different interpolation color spaces.
         // For example, this is a pastel rainbow gradient via in="oklch longer hue".
@@ -585,7 +585,7 @@ binds {
     // This bind corresponds to normal window maximizing,
     // e.g. by double-clicking on the titlebar.
     Mod+M { maximize-window-to-edges; }
-    
+
     // Expand the focused column to space not taken up by other fully visible columns.
     // Makes the column "fill the rest of the space".
     Mod+Ctrl+F { expand-column-to-available-width; }

@@ -5,16 +5,16 @@
 }
 
 window {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: #000000;
 }
 
 button {
     border-radius: 0;
-    border-color: #504945;
+    border-color: #ffffff;
     border-style: solid;
     border-width: 1px;
-    color: #ebdbb2;
-    background-color: #3c3836;
+    color: #ffffff;
+    background-color: #000000;
     background-repeat: no-repeat;
     background-position: center;
     background-size: 35%;
@@ -25,8 +25,8 @@ button {
 }
 
 button:focus, button:active, button:hover {
-    background-color: #504945;
-    color: #ebdbb2;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
     outline-style: none;
 }
 

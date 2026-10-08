@@ -1,4 +1,4 @@
-/* === Wofi — Gruvbox dark === */
+/* === Wofi — Black OLED (монохром) === */
 
 * {
     font-family: "JetBrainsMono Nerd Font";
@@ -7,24 +7,24 @@
 
 /* Главное окно */
 window {
-    background-color: #282828;
-    border: 2px solid #504945;
+    background-color: #000000;
+    border: 1px solid rgba(255, 255, 255, 0.4);
     border-radius: 0px;
     padding: 6px;
 }
 
 /* Поле поиска */
 #input {
-    background-color: #3c3836;
-    color: #ebdbb2;
-    border: 2px solid #504945;
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.6);
     border-radius: 0px;
     padding: 12px 16px;
     margin: 6px;
 }
 
 #input:focus {
-    border-color: #83a598;
+    border-color: #ffffff;
 }
 
 /* Список */
@@ -42,7 +42,7 @@ window {
 /* Элемент списка */
 #entry {
     background-color: transparent;
-    color: #d5c4a1;
+    color: rgba(255, 255, 255, 0.8);
     border-radius: 0px;
     padding: 10px 14px;
     margin: 1px 4px;
@@ -50,12 +50,12 @@ window {
 }
 
 #entry:selected {
-    background-color: #504945;
-    color: #ebdbb2;
+    background-color: #ffffff;
+    color: #000000;
 }
 
 #entry:hover {
-    background-color: #3c3836;
+    background-color: rgba(255, 255, 255, 0.15);
 }
 
 /* Иконка */

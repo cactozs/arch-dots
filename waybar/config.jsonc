@@ -12,7 +12,7 @@
     "modules-center": [
         "niri/language",
         "clock#date",
-        "custom/time"
+        "clock#time"
     ],
 
     "modules-right": [
@@ -24,17 +24,15 @@
     ],
 
     "clock#date": {
-        "format": "{:%a, %d %b}",
+        "format": " {:%a, %d %b}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "interval": 3600
     },
 
-    "custom/time": {
-        "exec": "$HOME/.config/waybar/scripts/waybar-time-weather.sh",
-        "interval": 60,
-        "return-type": "json",
-        "format": "{}",
-        "tooltip": true
+    "clock#time": {
+        "format": "󰥔 {:%I:%M %p}",
+        "interval": 30,
+        "tooltip": false
     },
 
     "niri/language": {
@@ -55,15 +53,13 @@
     },
 
     "niri/window": {
-        "max-length": 45,
         "icon": true,
         "icon-size": 13,
         "expand-on-click": false,
         "format": "{title}",
         "tooltip-format": "{title}",
         "rewrite": {
-            "Firefox": "Firefox",
-            "^(.*?)( - .*)$": "$1"
+            "Firefox": "Firefox"
         }
     },
 

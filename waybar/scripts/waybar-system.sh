@@ -22,14 +22,36 @@ else
     cpu_usage=0
 fi
 
+# Temperature icon by threshold
+temp_icon() {
+    local t="$1"
+
+    [[ "$t" =~ ^[0-9]+$ ]] || { echo ""; return; }
+
+    if (( t <= 30 )); then
+        echo ""
+    elif (( t <= 40 )); then
+        echo ""
+    elif (( t <= 55 )); then
+        echo ""
+    elif (( t <= 65 )); then
+        echo ""
+    else
+        echo ""
+    fi
+}
+
 # CPU temperature
 cpu_temp="N/A"
+cpu_icon=""
 
 for zone in /sys/class/thermal/thermal_zone*/temp; do
     if [[ -r "$zone" ]]; then
         temp=$(cat "$zone")
         if (( temp > 20000 && temp < 110000 )); then
-            cpu_temp="$((temp / 1000))°C"
+            cpu_temp_c=$((temp / 1000))
+            cpu_icon=$(temp_icon "$cpu_temp_c")
+            cpu_temp="${cpu_temp_c}󰔄"
             break
         fi
     fi
@@ -37,6 +59,7 @@ done
 
 # GPU
 gpu_temp="N/A"
+gpu_icon=""
 gpu_usage="N/A"
 
 if command -v nvidia-smi >/dev/null 2>&1; then
@@ -45,7 +68,9 @@ if command -v nvidia-smi >/dev/null 2>&1; then
         --format=csv,noheader,nounits 2>/dev/null)
 
     if [[ -n "$gpu_data" ]]; then
-        gpu_temp=$(echo "$gpu_data" | awk -F', ' '{print $1 "°C"}')
+        gpu_temp_c=$(echo "$gpu_data" | awk -F', ' '{print $1}' | tr -d ' ')
+        gpu_icon=$(temp_icon "$gpu_temp_c")
+        gpu_temp="${gpu_temp_c}󰔄"
         gpu_usage=$(echo "$gpu_data" | awk -F', ' '{print $2 "%"}')
     fi
 fi
@@ -90,11 +115,11 @@ tx_speed=$(format_speed "$tx_rate")
 # Waybar output
 tooltip="\
 CPU
-Temperature: $cpu_temp
+${cpu_icon:+$cpu_icon }Temperature: $cpu_temp
 Usage:       $cpu_usage%
 
 GPU
-Temperature: $gpu_temp
+${gpu_icon:+$gpu_icon }Temperature: $gpu_temp
 Usage:       $gpu_usage
 
 Memory
@@ -106,6 +131,6 @@ Network
 ↑ $tx_speed"
 
 jq -cn \
-    --arg text "󰍛" \
+    --arg text "" \
     --arg tooltip "$tooltip" \
     '{text: $text, tooltip: $tooltip}'
