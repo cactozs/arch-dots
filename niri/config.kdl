@@ -8,3 +8,6 @@ include "window-rules.kdl"
 include "keybinds.kdl"
 
 include "small.kdl"
+
+// Quickshell: border/focus-ring colors and blur source (generated).
+include "quickshell.kdl"

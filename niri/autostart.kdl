@@ -5,3 +5,5 @@ spawn-at-startup "sh" "-c" "wl-paste --type image --watch cliphist store"
 // software renderer: the bar needs no GPU, and the Mesa/LLVM/nvidia stack
 // it otherwise loads for shader compilation costs ~300 MB of RAM
 spawn-at-startup "env" "QT_QUICK_BACKEND=software" "quickshell"
+
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"

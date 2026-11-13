@@ -1,12 +1,15 @@
 binds {
     Mod+Slash { show-hotkey-overlay; }
 
-    Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
-    Mod+A repeat=false hotkey-overlay-title="Run an Application: wofi" { spawn "wofi" "--show" "drun"; }
-    Mod+V hotkey-overlay-title="Cliphist" { spawn "sh" "-c" "cliphist list | wofi --dmenu | cliphist decode | wl-copy"; }
+    Mod+T hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
+    Mod+A repeat=false hotkey-overlay-title="Launcher: Quickshell" { spawn-sh "qs ipc call launcher toggleOn $(niri msg --json focused-output | jq -r .name)"; }
+    Mod+V repeat=false hotkey-overlay-title="Clipboard: Quickshell" { spawn-sh "qs ipc call clipboard toggleOn $(niri msg --json focused-output | jq -r .name)"; }
+    Mod+N repeat=false hotkey-overlay-title="Notification Center: Quickshell" { spawn-sh "qs ipc call center toggleOn $(niri msg --json focused-output | jq -r .name)"; }
+    Mod+Ctrl+W repeat=false hotkey-overlay-title="Wallpaper: Quickshell" { spawn-sh "qs ipc call wallpaper toggleOn $(niri msg --json focused-output | jq -r .name)"; }
+    Mod+Shift+N repeat=false hotkey-overlay-title="Toggle Do Not Disturb" { spawn "qs" "ipc" "call" "notifs" "toggleDnd"; }
     Mod+Alt+V hotkey-overlay-title="Wipe Cliphist" { spawn "cliphist" "wipe"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
-    Mod+P hotkey-overlay-title="Toggle Waybar" { spawn-sh "pkill -SIGUSR1 waybar"; }
+    Super+Alt+L hotkey-overlay-title="Lock the Screen" { spawn "qs" "ipc" "call" "lock" "lock"; }
+    Mod+P repeat=false hotkey-overlay-title="Toggle Quickshell Bar" { spawn "qs" "ipc" "call" "bar" "toggle"; }
 
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
