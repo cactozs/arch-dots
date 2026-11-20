@@ -1,7 +1,7 @@
 // https://niri-wm.github.io/niri/Configuration:-Layout
 
 layout {
-    gaps 10
+    gaps 7
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -57,7 +57,7 @@ layout {
     border {
         on
 
-        width 1
+        width 2
         active-color "#ffffff"
         inactive-color "#59ffffff"
 
@@ -80,13 +80,13 @@ layout {
         // draw-behind-window true
 
         // Softness controls the shadow blur radius.
-        softness 30
+        softness 20
 
         // Spread expands the shadow.
-        spread 5
+        spread 2
 
         // Offset moves the shadow relative to the window.
-        offset x=0 y=5
+        offset x=0 y=0
 
         // You can also change the shadow color and opacity.
         color "#0007"

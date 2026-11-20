@@ -2,7 +2,7 @@
 
 window-rule {
     clip-to-geometry true
-    opacity 0.95
+    opacity 0.985
     draw-border-with-background false
     background-effect {
         blur true
@@ -10,7 +10,7 @@ window-rule {
 }
 
 window-rule {
-	match app-id="brave-browser-nightly"
+	match app-id="helium"
 	match app-id="ai.storyteller.figcraft"
 	opacity 1.0
 	background-effect {
